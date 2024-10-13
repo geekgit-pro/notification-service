@@ -3,8 +3,13 @@ const app = express();
 
 const router = express.Router();
 
-const { InfoController } = require('../../controllers');
+const ticketRoutes = require('./ticket-routes');
+
+const { InfoController, EmailController } = require('../../controllers');
 
 router.get('/info', InfoController.info);
+
+router.use('/tickets', ticketRoutes);
+
 
 module.exports = router;
